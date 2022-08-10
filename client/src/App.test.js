@@ -1,10 +1,8 @@
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import App from './App';
 
-
-test('renders App component', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/Restart/i);
-  expect(linkElement).toBeInTheDocument();
+test('Should App component successfully render', () => {
+  render(<App />);
+  const buttonElement = screen.getByRole('button');
+  expect(buttonElement).toBeInTheDocument();
 });
-
